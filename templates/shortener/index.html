@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Сокращатель 5000{% endblock %}
+
+{% block content %}
+  {% load user_filters %}
+  <h1>Привет из шаблона глагно!</h1>
+  <div>
+    <form method="post" action={% url "shortener:process" %}>
+      {% csrf_token %}
+      {% for field in form %}
+        <label class="form-label">{{ field.label }}</label>
+        {{ field|addclass:"form-control py-2 mb-2" }}
+        <div class="form-text pb-3">{{ field.help_text }}</div>
+      {% endfor %}
+      <button type="submit" class="btn btn-primary">Сократить</button>
+    </form>
+  </div>
+  <div>
+    {% for singe_url in urls %}
+      {{ singe_url }}
+    {% endfor %}
+  </div>
+{% endblock %}
