@@ -4,7 +4,7 @@
 
 {% block content %}
   {% load user_filters %}
-  <h1>Привет из шаблона глагно!</h1>
+  <h1>Самый лучший сокращатель ссылок</h1>
   <div>
     <form method="post" action={% url "shortener:index" %}>
       {% csrf_token %}
