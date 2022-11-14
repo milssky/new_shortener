@@ -7,5 +7,5 @@ app_name = "shortener"
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("process/", views.process, name="process"),
+    path("go/<slug:slug>", views.url_detail, name="go"),
 ]

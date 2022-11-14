@@ -9,4 +9,7 @@ class Url(models.Model):
     nums_of_visits = models.IntegerField(default=0)
     slug = models.SlugField(unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f"{self.full_url[:30]}. Visits: {self.nums_of_visits}"
 

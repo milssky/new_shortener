@@ -6,7 +6,7 @@
   {% load user_filters %}
   <h1>Привет из шаблона глагно!</h1>
   <div>
-    <form method="post" action={% url "shortener:process" %}>
+    <form method="post" action={% url "shortener:index" %}>
       {% csrf_token %}
       {% for field in form %}
         <label class="form-label">{{ field.label }}</label>
@@ -17,8 +17,6 @@
     </form>
   </div>
   <div>
-    {% for singe_url in urls %}
-      {{ singe_url }}
-    {% endfor %}
+    <h1 class="pt-3"><a href="{{ short_url }}" target="blank">{{ short_url }}</a></h1>
   </div>
 {% endblock %}
